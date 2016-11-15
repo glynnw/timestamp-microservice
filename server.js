@@ -15,6 +15,10 @@ app.use(compression());
 // http://expressjs.com/en/starter/static-files.html
 // app.use(express.static('public'));
 
+app.get('/', function (request, response) {
+  response.sendFile(__dirname + '/views/index.html');
+});
+
 app.get("/:timestamp", function (request, response) {
   let time = new Date(request.params.timestamp);
   let result = { "unix": null, "natural": null };
