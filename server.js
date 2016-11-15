@@ -5,6 +5,7 @@
 var express = require('express');
 var app = express();
 var compression = require('compression');
+var dateformat = require('dateformat');
 
 app.use(compression());
 
@@ -16,9 +17,12 @@ app.use(compression());
 
 app.get("/:timestamp", function (request, response) {
   let time = new Date(request.params.timestamp);
-  let result = {
-    "unix": time.getTime(),
-    "natural": time.toLocaleString()
+  let result = { "unix": null, "natural": null };
+  if (time != 'Invalid Date') {
+    result = {
+      "unix": time.getTime(),
+      "natural": dateformat(time, 'mmmm d, yyyy')
+    }
   }
   response.jsonp(result);
 });
