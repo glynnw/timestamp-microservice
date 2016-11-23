@@ -1,9 +1,7 @@
 var request = require('supertest');
-var chai = require('chai');
 var express = require('express');
 var routes = require('../lib/routes.js');
 
-var expect = chai.expect;
 var app = express();
 app.use(routes);
 
@@ -14,7 +12,7 @@ describe('GET /:timestamp', function() {
       request(app).get('/January 1, 2016')
         .expect(200, {
           unix: 1451628000000,
-          natural: "January 1, 2016"
+          natural: 'January 1, 2016'
         }, done);
     });
 
@@ -22,7 +20,7 @@ describe('GET /:timestamp', function() {
       request(app).get('/January 1, 2016')
         .expect(200, {
           unix: 1451628000000,
-          natural: "January 1, 2016"
+          natural: 'January 1, 2016'
         }, done);
     });
   });
