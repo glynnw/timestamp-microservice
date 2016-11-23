@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='stylesheet' href='/style.css')
+    title Timestamp Microservice
+    link(href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet')
+  body
+    div(class='container')
+      div(class='spacer')
+      div(class='v-container')
+        div(class='spacer')
+        div(class='content')
+          h1 Timestamp Microservice
+          p Append a date to the end of the url and have it converted into natural and Unix epoc time.
+          h3 Example:
+          p Add <code>#{host}/January 1, 2016</code> and get back <code>{"unix":1451606400000,"natural":"January 1, 2016"}</code>
+        div(class='spacer')
+      div(class='spacer')
