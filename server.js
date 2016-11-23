@@ -13,7 +13,7 @@ app.get('/', function (request, response) {
 app.get("/:timestamp", function (request, response) {
   var time = new Date(request.params.timestamp);
   var result = { "unix": null, "natural": null };
-  if (time != 'Invalid Date') {
+  if (time !== 'Invalid Date') {
     result = {
       "unix": time.getTime(),
       "natural": dateformat(time, 'mmmm d, yyyy')
