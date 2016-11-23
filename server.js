@@ -3,9 +3,10 @@ var app = express();
 var compression = require('compression');
 var dateformat = require('dateformat');
 
+app.set('view engine', 'pug');
+
 app.use(compression());
 app.use(express.static('public'));
-app.set('view engine', 'pug');
 
 app.get('/', function (request, response) {
   response.render('index', { host: request.get('Host') });
@@ -24,5 +25,5 @@ app.get("/:timestamp", function (request, response) {
 });
 
 var listener = app.listen(process.env.PORT, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
+  console.log('Server is listening on port ' + listener.address().port);
 });
